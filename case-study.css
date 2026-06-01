@@ -231,7 +231,7 @@ nav {
 .persona::before {
   content: '';
   display: block;
-  height: 4px;
+  height: 2px;
   background: linear-gradient(90deg, #5171c3, #7b93d4);
   width: 100%;
 }
