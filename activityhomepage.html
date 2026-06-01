@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Voila BSA1 Reading Activity — Em Restrivera</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="case-study.css" />
+<style>
+  .cs-layout{display:grid;grid-template-columns:220px 1fr;gap:0;max-width:1100px;margin:0 auto;align-items:start;padding:0 4rem}
+  .cs-sidenav{position:sticky;top:6rem;padding:3.5rem 2.5rem 3.5rem 0;border-right:1px solid var(--border)}
+  .cs-sidenav-title{font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--subtle);margin-bottom:1.5rem;text-align:right}
+  .cs-sidenav ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0}
+  .cs-sidenav ul li a{display:block;font-size:0.9rem;color:var(--subtle);text-decoration:none;padding:0.65rem 1.25rem 0.65rem 0;border-right:2px solid transparent;transition:all 0.2s ease;line-height:1.5;text-align:right}
+  .cs-sidenav ul li a:hover{color:var(--text);border-right-color:var(--text)}
+  .cs-sidenav ul li a.active{color:var(--text);font-weight:500;border-right-color:var(--text)}
+  .cs-main{padding:3.5rem 0 3.5rem 4rem}
+  .img-upload-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.25rem;margin:2.5rem 0}
+  .img-upload-box{aspect-ratio:4/3;border:1.5px dashed var(--border);border-radius:6px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.75rem;background:var(--surface);cursor:pointer;transition:all 0.2s ease;position:relative;overflow:hidden}
+  .img-upload-box:hover{border-color:var(--muted);background:var(--bg)}
+  .img-upload-box input[type="file"]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+  .img-upload-box img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none}
+  .img-upload-box .upload-icon{font-size:1.75rem;color:var(--subtle)}
+  .img-upload-box .upload-label{font-size:0.875rem;color:var(--subtle);text-align:center;line-height:1.5;padding:0 1.25rem}
+  .confidential-box{background:var(--surface);border:1px dashed var(--border);border-radius:4px;padding:1.5rem 2rem;margin:2rem 0;display:flex;align-items:center;gap:0.75rem}
+  .confidential-box span{font-size:0.9375rem;color:var(--subtle);font-style:italic}
+  @media(max-width:768px){.cs-layout{grid-template-columns:1fr;padding:0 1.5rem}.cs-sidenav{display:none}.cs-main{padding:2rem 0}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <span style="display:inline-flex;align-items:center;gap:0.5rem;">
+      <span style="width:8px;height:8px;background:var(--text);border-radius:50%;display:inline-block;flex-shrink:0;transition:background 0.22s ease;"></span>
+      <span style="font-weight:700;font-family:'Inter',sans-serif;font-size:1rem;color:var(--text);">Em Restrivera</span>
+      <span style="color:var(--subtle);font-weight:300;font-size:1rem;margin:0 0.15rem;">/</span>
+      <span style="font-weight:400;font-family:'Inter',sans-serif;font-size:0.9375rem;color:var(--subtle);">UI/UX Designer</span>
+    </span>
+  </a>
+  <div style="display:flex;align-items:center;gap:1.5rem;">
+  <ul class="nav-links">
+    <li><a href="index.html#works">Works</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+    <button id="theme-toggle" aria-label="Toggle dark mode" style="background:none;border:none;cursor:pointer;padding:4px;display:flex;align-items:center;justify-content:center;color:var(--subtle);transition:color 0.22s ease;">
+    <svg id="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    <svg id="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  </button>
+  </div>
+</nav>
+
+<!-- COVER -->
+<div class="cs-cover fade-up">
+  <div class="cs-cover-img">Cover image — add BSA1 Reading Activity hero screenshot here</div>
+</div>
+
+<!-- HERO -->
+<div class="cs-hero fade-up">
+  <a href="index.html" class="cs-back">← Back to all work</a>
+  <div class="cs-tags">
+    <span class="cs-tag">UI Design</span>
+    <span class="cs-tag">UX Design</span>
+    <span class="cs-tag">Research</span>
+  </div>
+  <p class="cs-reading-time">⏱ 7 min read</p>
+  <h1>Voila — BSA1 Reading Activity</h1>
+  <p class="subtitle">Practice your English skills anytime, anywhere — redesigning the BSA1 reading activity flow to reduce drop-offs, streamline the learner journey, and deliver a more engaging experience.</p>
+  <div class="cs-meta">
+    <div class="cs-meta-item">
+      <p class="cs-meta-label">Role</p>
+      <p class="cs-meta-value">Lead UI/UX Designer</p>
+    </div>
+    <div class="cs-meta-item">
+      <p class="cs-meta-label">Tools</p>
+      <p class="cs-meta-value">Figma · FigJam · Maze · Miro · Notion</p>
+    </div>
+    <div class="cs-meta-item">
+      <p class="cs-meta-label">Process</p>
+      <p class="cs-meta-value">Empathise · Discovery · Ideation · Prototype · Testing</p>
+    </div>
+    <div class="cs-meta-item">
+      <p class="cs-meta-label">Company</p>
+      <p class="cs-meta-value">Cambridge University Press & Assessment</p>
+    </div>
+  </div>
+</div>
+
+<!-- TWO COLUMN LAYOUT -->
+<div class="cs-layout">
+
+  <aside class="cs-sidenav">
+    <p class="cs-sidenav-title">On this page</p>
+    <ul>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#empathise">Empathise</a></li>
+      <li><a href="#opportunity">Opportunity</a></li>
+      <li><a href="#personas">User personas</a></li>
+      <li><a href="#ideation">Ideation</a></li>
+      <li><a href="#design">Design</a></li>
+      <li><a href="#testing">Testing</a></li>
+      <li><a href="#reflections">Reflections</a></li>
+    </ul>
+  </aside>
+
+  <div class="cs-main">
+
+    <!-- OVERVIEW -->
+    <div class="cs-section fade-up" id="overview">
+      <p class="cs-section-label">Overview</p>
+      <h2>Too many steps before the real learning begins</h2>
+      <p>This project focused on improving the current journey of the BSA1 reading activity — one of the core activity types within Voila, Cambridge UP&A's English learning platform for B1–B2 secondary learners.</p>
+      <p>As <strong>Lead UI/UX Designer</strong>, I led the full exploration and redesign — from identifying drop-off patterns in the existing flow to delivering a new activity experience that was tested with real learners in Cambridge partner schools in Brazil.</p>
+      <ul class="cs-list">
+        <li>Identified a critical drop-off pattern caused by excessive pre-screens before learners reached the actual activity</li>
+        <li>Redesigned the BSA1 activity flow to be faster, cleaner, and more engaging</li>
+        <li>Delivered measurable outcomes — increased activity completion rates and faster average task time</li>
+      </ul>
+    </div>
+
+    <!-- EMPATHISE -->
+    <div class="cs-section fade-up" id="empathise">
+      <p class="cs-section-label">Empathise</p>
+      <h2>Users were dropping off before they even started</h2>
+      <p>The research phase centred on a key question: <strong>what are the major pain points learners encounter while using our activities?</strong></p>
+      <p>Through analysis of the existing live activity flow, the answer became clear: learners were required to cross a series of pre-screens before reaching the actual content. Each screen required an action — and the cumulative effect of these steps was fatigue, frustration, and drop-off after completing just one activity.</p>
+
+      <div class="problem-box">
+        <p>Users are dropping off after completing only one activity — forced to navigate multiple pre-screens before accessing live content makes the current process tiring and inefficient.</p>
+      </div>
+
+      <p>The feedback system within the existing BSA1 activity also contained very basic information, providing little value to the learner and offering no incentive to continue. Both issues needed to be addressed together.</p>
+    </div>
+
+    <!-- OPPORTUNITY -->
+    <div class="cs-section fade-up" id="opportunity">
+      <p class="cs-section-label">Opportunity</p>
+      <h2>Remove the friction — keep the learning</h2>
+      <p>By optimising the flow and creating a more engaging experience, learners would be able to move through activities faster — spending more time learning and less time navigating. This would also generate more data for the platform's calibration engine, creating a better experience over time.</p>
+      <div class="opportunities">
+        <div class="opportunity">
+          <h4>Streamline the pre-activity flow</h4>
+          <p>Eliminate unnecessary screens between the activity selection and the actual content — reducing the number of required actions and lowering the cognitive load before learning even begins.</p>
+        </div>
+        <div class="opportunity">
+          <h4>Improve feedback quality</h4>
+          <p>Upgrade the feedback system from basic information to meaningful, actionable responses — giving learners a reason to reflect, continue, and return to the platform.</p>
+        </div>
+        <div class="opportunity">
+          <h4>Drive more completions</h4>
+          <p>A faster, more engaging flow directly increases the number of activities completed per session — generating richer data for the calibration team and better outcomes for learners.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PERSONAS -->
+    <div class="cs-section fade-up" id="personas">
+      <p class="cs-section-label">User personas</p>
+      <h2>Two learners with one shared frustration</h2>
+      <p>The same two personas that surfaced across the Voila platform research were central to this project — both experiencing the same core problem: too much friction before reaching the actual learning content.</p>
+      <div class="personas">
+        <div class="persona">
+          <div class="persona-header">
+            <div class="persona-avatar">SD</div>
+            <div style="display:flex;flex-direction:column;gap:2px;">
+              <p class="persona-name">Sally Doe</p>
+              <p class="persona-role">Student, 11 · Full-time student</p>
+            </div>
+          </div>
+          <div class="persona-body">
+            <p class="persona-bio">A bookworm and active English language learner. Sally uses YouTube and reading to build her skills — but gets frustrated when platforms put too many steps between her and the content she came for.</p>
+            <div class="persona-section">
+            <h5>Goals</h5>
+            <ul>
+              <li>Access optimised, straightforward learning material with clear feedback</li>
+              <li>Get to reading and listening activities without unnecessary obstacles</li>
+            </ul>
+          </div>
+            <div class="persona-section">
+            <h5>Frustrations</h5>
+            <ul>
+              <li>Too long a process before reaching the actual activity</li>
+              <li>Pre-screens feel like obstacles rather than preparation</li>
+            </ul>
+          </div>
+          </div>
+        </div><div class="persona">
+          <div class="persona-header">
+            <div class="persona-avatar">MD</div>
+            <div style="display:flex;flex-direction:column;gap:2px;">
+              <p class="persona-name">Milan Dimitri</p>
+              <p class="persona-role">Student, 18 · Full-time student</p>
+            </div>
+          </div>
+          <div class="persona-body">
+            <p class="persona-bio">A fan of fan fiction and gaming, Milan expects digital interfaces to be intuitive and rewarding. He gets frustrated when UI elements are confusing or when feedback doesn't feel accurate or meaningful.</p>
+            <div class="persona-section">
+            <h5>Goals</h5>
+            <ul>
+              <li>Straightforward learning with clear, accurate feedback and intuitive icons</li>
+              <li>An experience that respects his time and keeps him engaged</li>
+            </ul>
+          </div>
+            <div class="persona-section">
+            <h5>Frustrations</h5>
+            <ul>
+              <li>Complex and confusing UI elements break his flow</li>
+              <li>Dull, generic feedback with confusing iconography</li>
+            </ul>
+          </div>
+          </div>
+        </div></div>
+    </div>
+
+    <!-- IDEATION -->
+    <div class="cs-section fade-up" id="ideation">
+      <p class="cs-section-label">Ideation</p>
+      <h2>Designing for speed, clarity, and continuity</h2>
+      <p>The ideation phase was grounded in three How Might We questions — each addressing a different dimension of the drop-off problem:</p>
+      <div class="hmw">
+        <div class="hmw-item">How might we <em>improve the user experience within the bitesize activities to reduce fatigue and drop-off?</em></div>
+        <div class="hmw-item">How might we <em>increase the average number of activities taken by each learner to gather more calibration data?</em></div>
+        <div class="hmw-item">How might we <em>make feedback more meaningful so learners feel motivated to continue?</em></div>
+      </div>
+      <p>All design decisions were made within the <strong>Cambridge One Design System and branding guidelines</strong>. Alignment with the development team was crucial — many of the new components, flows, and interactions required feasibility validation before committing to the hi-fidelity direction.</p>
+    </div>
+
+    <!-- DESIGN -->
+    <div class="cs-section fade-up" id="design">
+      <p class="cs-section-label">Design</p>
+      <h2>From lo-fi to hi-fidelity — built for speed and clarity</h2>
+      <p>The design process moved through low-fidelity wireframes to map the new streamlined flow, followed by high-fidelity designs applying the Cambridge One Design System tokens, typography, and colour.</p>
+
+      <div class="screen-group" style="margin-bottom:2rem;">
+        <h4>Low fidelity wireframes</h4>
+        <div class="img-upload-grid">
+          <div class="img-upload-box">
+            <input type="file" accept="image/*" onchange="previewImage(this)" />
+            <span class="upload-icon">＋</span>
+            <span class="upload-label">Add lo-fi wireframe</span>
+            <img alt="Lo-fi 1" />
+          </div>
+          <div class="img-upload-box">
+            <input type="file" accept="image/*" onchange="previewImage(this)" />
+            <span class="upload-icon">＋</span>
+            <span class="upload-label">Add lo-fi wireframe</span>
+            <img alt="Lo-fi 2" />
+          </div>
+          <div class="img-upload-box">
+            <input type="file" accept="image/*" onchange="previewImage(this)" />
+            <span class="upload-icon">＋</span>
+            <span class="upload-label">Add lo-fi wireframe</span>
+            <img alt="Lo-fi 3" />
+          </div>
+        </div>
+      </div>
+
+      <div class="screen-group">
+        <h4>High fidelity designs</h4>
+        <div class="img-upload-grid">
+          <div class="img-upload-box">
+            <input type="file" accept="image/*" onchange="previewImage(this)" />
+            <span class="upload-icon">＋</span>
+            <span class="upload-label">Add hi-fi screen</span>
+            <img alt="Hi-fi 1" />
+          </div>
+          <div class="img-upload-box">
+            <input type="file" accept="image/*" onchange="previewImage(this)" />
+            <span class="upload-icon">＋</span>
+            <span class="upload-label">Add hi-fi screen</span>
+            <img alt="Hi-fi 2" />
+          </div>
+          <div class="img-upload-box">
+            <input type="file" accept="image/*" onchange="previewImage(this)" />
+            <span class="upload-icon">＋</span>
+            <span class="upload-label">Add hi-fi screen</span>
+            <img alt="Hi-fi 3" />
+          </div>
+        </div>
+      </div>
+
+      <div class="confidential-box">
+        <span>🔒 Cambridge One Design System and branding details are confidential and not shown here.</span>
+      </div>
+    </div>
+
+    <!-- TESTING -->
+    <div class="cs-section fade-up" id="testing">
+      <p class="cs-section-label">Testing</p>
+      <h2>Validated with real learners in Cambridge partner schools</h2>
+      <p>The proposed solution underwent both <strong>unmoderated and moderated usability testing</strong> with Cambridge partner schools in Brazil — supported by colleagues on the assessment team. This was one of the most rigorous testing processes I've led, combining remote unmoderated sessions with in-person moderated testing for richer qualitative insights.</p>
+
+      <div class="stats">
+        <div class="stat">
+          <p class="stat-num">↑</p>
+          <p class="stat-label">Average activities completed per learner increased after implementation</p>
+        </div>
+        <div class="stat">
+          <p class="stat-num">129.5s</p>
+          <p class="stat-label">Average task time per activity — faster than the previous version</p>
+        </div>
+        <div class="stat">
+          <p class="stat-num">✓</p>
+          <p class="stat-label">Positive feedback from internal stakeholders and learners</p>
+        </div>
+      </div>
+
+      <div class="summary-box">
+        <p>The new activity flow, UI, and UX received positive feedback from both internal stakeholders and users — and had a significant impact on data collection. The data team found the increase in completed activities both useful and insightful for improving user engagement strategies going forward.</p>
+      </div>
+
+      <p style="font-size:0.875rem;font-weight:600;color:var(--text);margin-top:2rem;margin-bottom:0.75rem;">Testing documentation</p>
+      <div class="img-upload-grid">
+        <div class="img-upload-box">
+          <input type="file" accept="image/*" onchange="previewImage(this)" />
+          <span class="upload-icon">＋</span>
+          <span class="upload-label">Add testing photo</span>
+          <img alt="Testing photo 1" />
+        </div>
+        <div class="img-upload-box">
+          <input type="file" accept="image/*" onchange="previewImage(this)" />
+          <span class="upload-icon">＋</span>
+          <span class="upload-label">Add testing photo</span>
+          <img alt="Testing photo 2" />
+        </div>
+        <div class="img-upload-box">
+          <input type="file" accept="image/*" onchange="previewImage(this)" />
+          <span class="upload-icon">＋</span>
+          <span class="upload-label">Add testing photo</span>
+          <img alt="Testing photo 3" />
+        </div>
+      </div>
+
+      <div class="confidential-box">
+        <span>🔒 Significant insights and synthesised data are confidential per Cambridge UP&A guidelines.</span>
+      </div>
+    </div>
+
+    <!-- REFLECTIONS -->
+    <div class="cs-section fade-up" id="reflections">
+      <p class="cs-section-label">Reflections</p>
+      <h2>Communication and alignment are as important as the design itself</h2>
+      <p>This project was successfully implemented — and I'm grateful for the support of my Scrum team and the trust they placed in me as lead designer during the exploration stage. Three key lessons stood out:</p>
+      <ul class="cs-list">
+        <li><strong>Communication is key.</strong> The project was fast-paced — we needed to complete it before the next quarterly planning cycle. Clear, frequent communication kept everyone aligned under pressure</li>
+        <li><strong>Alignment is crucial.</strong> Since most components, flows, and interactions were new, I consulted closely with developers to validate feasibility before committing to hi-fidelity. This saved significant rework time</li>
+        <li><strong>Design system advocacy matters.</strong> Convincing the design team about new colour choices and interaction patterns required me to clearly articulate the rationale — ensuring no design system rules were violated while still pushing the experience forward</li>
+        <li><strong>Data is a design outcome.</strong> Increasing activity completion wasn't just a UX win — it directly improved the calibration data the platform needed to personalise learning. Designing for engagement had a measurable downstream business impact</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<div class="cs-next fade-up">
+  <div>
+    <p class="cs-next-label">Next project</p>
+    <a href="ecommerce.html">E-commerce <span>→</span></a>
+  </div>
+</div>
+
+<footer>
+  <span>© 2026 Em Restrivera</span>
+  <a href="index.html" style="color:var(--subtle);text-decoration:none;font-size:0.8125rem;">← Back to portfolio</a>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver(e => e.forEach(el => { if (el.isIntersecting) el.target.classList.add('visible'); }), { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  const sections = document.querySelectorAll('.cs-section[id]');
+  const navLinks = document.querySelectorAll('.cs-sidenav a');
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === '#' + entry.target.id) link.classList.add('active');
+        });
+      }
+    });
+  }, { threshold: 0.4 });
+  sections.forEach(section => sectionObserver.observe(section));
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  function previewImage(input) {
+    const box = input.parentElement;
+    const img = box.querySelector('img');
+    const icon = box.querySelector('.upload-icon');
+    const label = box.querySelector('.upload-label');
+    if (input.files && input.files[0]) {
+      const reader = new FileReader();
+      reader.onload = e => {
+        img.src = e.target.result;
+        img.style.display = 'block';
+        icon.style.display = 'none';
+        label.style.display = 'none';
+      };
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+  const _t = document.getElementById("theme-toggle");
+  const _th = document.getElementById("toggle-thumb");
+  const _tr = document.getElementById("toggle-track");
+  const _h = document.documentElement;
+  const applyDark = (dark) => {
+    if (dark) { _h.classList.add("dark"); if(_th){_th.style.transform="translateX(14px)";_th.style.background="#f0efeb";} if(_tr){_tr.style.background="#4a4a45";} }
+    else { _h.classList.remove("dark"); if(_th){_th.style.transform="translateX(0)";_th.style.background="";} if(_tr){_tr.style.background="";} }
+  };
+  const sv = localStorage.getItem("theme");
+  applyDark(sv === "dark" || (!sv && window.matchMedia("(prefers-color-scheme: dark)").matches));
+  if(_t){ _t.addEventListener("click", () => { const d = !_h.classList.contains("dark"); localStorage.setItem("theme", d ? "dark" : "light"); applyDark(d); }); }
+
+  // DARK MODE
+  const _toggle = document.getElementById("theme-toggle");
+  const _iconSun = document.getElementById("icon-sun");
+  const _iconMoon = document.getElementById("icon-moon");
+  const _html = document.documentElement;
+
+  const applyTheme = (dark) => {
+    if (dark) {
+      _html.classList.add("dark");
+      if (_iconSun) _iconSun.style.display = "block";
+      if (_iconMoon) _iconMoon.style.display = "none";
+    } else {
+      _html.classList.remove("dark");
+      if (_iconSun) _iconSun.style.display = "none";
+      if (_iconMoon) _iconMoon.style.display = "block";
+    }
+  };
+
+  const saved = localStorage.getItem("theme");
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  applyTheme(saved === "dark" || (!saved && prefersDark));
+
+  if (_toggle) {
+    _toggle.addEventListener("click", () => {
+      const isDark = !_html.classList.contains("dark");
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+      applyTheme(isDark);
+    });
+  }
+</script>
+</body>
+</html>
